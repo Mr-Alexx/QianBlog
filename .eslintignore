@@ -1,0 +1,8 @@
+/build/
+/config/
+/dist/
+/*.js
+/test/unit/coverage/
+/src/backend/components/scroll-bar/
+/src/backend/config/editorMd.js
+/src/backend/views/login/login.vue

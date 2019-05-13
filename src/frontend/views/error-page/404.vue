@@ -1,10 +1,10 @@
 <template>
-  <div>人生</div>
+  <div>404</div>
 </template>
 
 <script>
 export default {
-  name: 'Life'
+  name: 'Error404'
 }
 </script>
 

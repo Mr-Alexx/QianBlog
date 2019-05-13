@@ -3,8 +3,8 @@
     <div class="qian-navbar__banner"></div>
     <div class="qian-container">
       <qian-row class="qian-menu-container">
+        <!-- 头像 -->
         <qian-col :xs="4" :md="5" :lg="6" class="qian-avatar-container">
-          <!-- 头像 -->
           <div class="qian-avatar">
             <img src="/static/images/frontend_avatar.jpg" alt="个人头像" class="qian-avatar__img">
           </div>
@@ -74,8 +74,8 @@ export default {
     background-color: $--color-white;
     @include utils-prefix(box-shadow, $--box-shadow-dark);
     @include e(banner) {
-      min-height: 200px;
-      background-image: url(https://i.loli.net/2018/10/09/5bbc7c611eaf0.jpg);
+      min-height: 70px;
+      background-image: url(https://s2.ax1x.com/2019/05/07/EyJsat.png); /* https://i.loli.net/2018/10/09/5bbc7c611eaf0.jpg */
       background-size: cover;
     }
     @include m(fixed) {

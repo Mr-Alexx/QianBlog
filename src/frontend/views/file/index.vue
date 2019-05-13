@@ -1,10 +1,6 @@
 <template>
   <div class="qian-mgb">
-    <qian-row :gutter="20">
-      <qian-col :xs="24" :md="16" :pull="4">
-        <time-line :list="timelineList" is-link></time-line>
-      </qian-col>
-    </qian-row>
+    <time-line :list="timelineList" is-link></time-line>
   </div>
 </template>
 

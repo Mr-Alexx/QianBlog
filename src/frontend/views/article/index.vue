@@ -1,33 +1,22 @@
 <template>
-  <div class="qian-container qian-container--mgb">
-    <qian-row :gutter="20">
-      <qian-col :md="18" :xs="24">
-        <qian-card>
-          <article
-            v-html="article"
-            class="article-content markdown-body editormd-preview-container"></article>
-        </qian-card>
-      </qian-col>
-      <qian-col :md="6" :xs="0">
-        <qian-featured></qian-featured>
-        <qian-tags :tag-list="tagList"></qian-tags>
-      </qian-col>
-    </qian-row>
+  <div>
+    <qian-card class="qian-relative">
+      <article class="article-content markdown-body editormd-preview-container">
+        <h2 class="qian-article-title">{{ article.title }}</h2>
+        <div class="qian-article-source" :class="sourceCls">{{ article.source }}</div>
+        <div v-html="article.html"></div>
+      </article>
+    </qian-card>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import { getArticleById } from '@/frontend/api'
-import QianTags from '@/frontend/components/tags'
-import QianFeatured from '@/frontend/components/featured'
 import QianCard from '@/frontend/components/card'
 
 export default {
   name: 'customArticle',
   components: {
-    QianTags,
-    QianFeatured,
     QianCard
   },
   props: {
@@ -35,27 +24,25 @@ export default {
   },
   data () {
     return {
-      article: ''
+      article: {}
     }
   },
   computed: {
-    ...mapState({
-      tagList: state => state.app.tagList
-    })
+    sourceCls () {
+      return this.article.source == '原创' ? '' : 'qian-article-source--primary'
+    }
   },
   created () {
-    if (this.tagList.length <= 0) {
-      this.$store.dispatch('getTagList')
-    }
     // 进入时获取
-    if (!this.article) {
+    if (Object.keys(this.article).length === 0) {
       this.getArticle()
     }
   },
   methods: {
     getArticle () {
       getArticleById(this.id).then(res => {
-        this.article = res.data.code === 1001 ? res.data.data.html : '获取文章失败'
+        console.log(res)
+        this.article = res.data.code === 1001 ? res.data.data : '获取文章失败'
       }).catch(err => {
         console.log(err)
       })
@@ -73,17 +60,39 @@ export default {
 <style lang="scss">
   @import '@/styles/common/var.scss';
   @import '@/styles/mixins/mixins.scss';
-  // @import '~/plugins/editor.md-master/css/editormd.min.css';
-  // @import '~/static/plugins/editor.md-master/css/google_code_prettify_themes/vscode-default.min.css';
 
+  .qian-card.qian-relative {
+    overflow: hidden;
+  }
   .article-content {
     width: 100%;
-    // margin: 20px auto;
-    // border-radius: $--border-radius-base;
   }
   @include b(container) {
     @include m(mgb) {
-      margin-bottom: 40px;
+      margin-bottom: 15px;
     }
+  }
+  @include b(article-title) {
+    border: none !important;
+    text-align: center;
+  }
+  @include b(article-source) {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    line-height: 36px;
+    padding-top: 64px;
+    font-size: $--font-size-large;
+    // font-weight: bold;
+    background-color: $--color-main;
+    color: $--color-white;
+    text-align: center;
+
+    @include m(primary) {
+      background-color: $--color-primary;
+    }
+
+    @include utils-prefix(transform, rotate(-45deg));
   }
 </style>

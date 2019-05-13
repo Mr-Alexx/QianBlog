@@ -6,23 +6,25 @@ import {
   getFeaturedList,
   getTimelineList
 } from '@/frontend/api'
+import playlist from '@/../static/songs/songs.js'
 
 export default {
   state: {
     menuList: [
-      {name: 'index', label: '首页'},
-      {name: 'file', label: '归档'},
-      {name: 'tag', label: '标签'},
-      {name: 'music', label: '音乐'},
-      {name: 'life', label: '生活'},
-      {name: 'message', label: '留言'}
+      {name: 'index', label: '主页', icon: ''},
+      {name: 'file', label: '归档', icon: ''},
+      {name: 'tag', label: '标签', icon: ''},
+      {name: 'music', label: '音乐', icon: ''},
+      {name: 'movie', label: '电影', icon: ''},
+      {name: 'message', label: '留言', icon: ''}
     ],
     tagList: [],
     activeRoute: 'index',
     articleList: [],
     featuredList: [], // 推荐列表
     timelineList: [], // 归档列表
-    count: 0
+    count: 0,
+    playlist
   },
   mutations: {
     'SET_ACTIVEROUTE' (state, routeName) {
@@ -65,7 +67,7 @@ export default {
       commit('SET_ARTICLELIST', res.data.data || [])
     },
     // 获取推荐列表
-    getFeaturedList ({commit}) {
+    getFeaturedList ({ commit }) {
       getFeaturedList().then(res => {
         commit('SET_FEATUREDLIST', res.data.data || [])
       }).catch(err => console.log(err))
@@ -73,7 +75,6 @@ export default {
     // 获取归档信息
     getTimelineList ({commit}) {
       getTimelineList().then(res => {
-        console.log(res)
         commit('SET_TIMELINELIST', res.data.data || [])
       }).catch(err => console.log(err))
     }

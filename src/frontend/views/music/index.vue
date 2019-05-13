@@ -1,10 +1,20 @@
 <template>
-  <div>音乐</div>
+  <div>
+    <!-- <aplayer :music="music" :list="list"></aplayer> -->
+  </div>
 </template>
 
 <script>
+import Aplayer from 'vue-aplayer'
+
 export default {
-  name: 'Music'
+  name: 'Music',
+  components: {
+    Aplayer
+  },
+  data () {
+    return {}
+  }
 }
 </script>
 

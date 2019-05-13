@@ -1,10 +1,9 @@
 <template>
   <qian-card bg="#fff" title="标签">
-    <div v-if="tagList.length > 0" class="qian-tags">
+    <div v-if="list.length > 0" class="qian-tags">
       <qian-tag
-        v-for="(item, i) in tagList"
+        v-for="(item, i) in list"
         :key="i"
-        v-if="tagList.length > 0"
         :label="item.name"
         @click.native="tagClick(item)"
         :active="activeTag.name === item.name"></qian-tag>
@@ -27,14 +26,10 @@ export default {
       activeTag: {}
     }
   },
-  computed: {
-    tagList () {
-      return this.$store.state.app.tagList
-    }
-  },
-  created () {
-    if (this.tagList.length <= 0) {
-      this.$store.dispatch('getTagList')
+  props: {
+    list: {
+      type: Array,
+      default: () => []
     }
   },
   methods: {

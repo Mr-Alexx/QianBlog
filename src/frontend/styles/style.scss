@@ -2,8 +2,91 @@
 @import '@/styles/mixins/mixins.scss';
 @import '@/styles/transition.scss'; // 路由效果
 
+/* 阿里iconfont线上引用 */
+@font-face {
+  font-family: 'iconfont2';  /* project id 1187093 */
+  src: url('//at.alicdn.com/t/font_1187093_e495phkof6c.eot');
+  src: url('//at.alicdn.com/t/font_1187093_e495phkof6c.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1187093_e495phkof6c.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1187093_e495phkof6c.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1187093_e495phkof6c.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1187093_e495phkof6c.svg#iconfont') format('svg');
+}
+
+.icon {
+  font-family: "iconfont2" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-email:before {
+  content: "\e648";
+}
+
+.icon-file:before {
+  content: "\e60f";
+}
+
+.icon-home:before {
+  content: "\e610";
+}
+
+.icon-movie:before {
+  content: "\e600";
+}
+
+.icon-music:before {
+  content: "\e80f";
+}
+
+.icon-about:before {
+  content: "\e633";
+}
+
+.icon-tag:before {
+  content: "\e629";
+}
+
+.icon-message:before {
+  content: "\e602";
+}
+
+.icon-arrow-up:before {
+  content: "\e658";
+}
+
+.icon-arrow-left:before {
+  content: "\e659";
+}
+
+.icon-arrow-down:before {
+  content: "\e65a";
+}
+
+.icon-arrow-right:before {
+  content: "\e65b";
+}
+
+.icon-weibo:before {
+  content: "\e65d";
+}
+
+.icon-github:before {
+  content: "\e65e";
+}
+
+.icon-weixin:before {
+  content: "\e65f";
+}
+
+html, body, #app, .qian-app {
+  height: 100%;
+}
 body {
   background-color: $--color-main-bg;
+  font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 }
 
 // 修改loading-bar的颜色为主色调
@@ -13,6 +96,14 @@ body {
 
 a {
   color: $--color-text-primary;
+}
+
+@include b(fl) {
+  float: left;
+}
+
+@include b(fr) {
+  float: right;
 }
 
 @include b(relative) {
@@ -33,11 +124,11 @@ a {
 // 容器
 @include b(container) {
   margin: 0 auto;
-  max-width: 890px;
+  max-width: 818px;
   @include res(lg) {
-    min-width: 1190px;
+    min-width: 1060px;
   }
   @include m(pd) {
-    padding-top: 40px;
+    padding-top: $--menu-offset;
   }
 }

@@ -13,7 +13,7 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 /* Colors
 -------------------------- */
 $--color-white: #fff !default;
-$-color-black: #000 !default;
+$--color-black: #000 !default;
 
 $--color-main-bg: #F5F4F5 !default;
 
@@ -63,6 +63,10 @@ $--color-text-placeholder: #c0c4cc !default;
 $--color-scrollbar-primary: rgba(122, 191, 250, .3);
 $--color-scrollbar-main: rgba(218, 62, 155, 0.3);
 
+$--color-card-hover: rgba(198, 198, 198, .45);
+
+$--color-nav-hover: rgb(247, 247, 247);
+
 /* Box-shadow
 -------------------------- */
 $--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
@@ -81,7 +85,7 @@ $--border-color-lighter: #ebeef5 !default;
 $--border-color-extra-light: #f2f6fc !default;
 $--border-color-hover: $--color-text-placeholder !default;
 $--border-base: $--border-width-base $--border-style-base $--border-color-base !default;
-$--border-radius-base: 4px !default;
+$--border-radius-base: 3px !default;
 $--border-radius-small: 2px !default;
 $--border-radius-circle: 100% !default;
 
@@ -90,8 +94,8 @@ $--border-radius-circle: 100% !default;
 $--font-path: 'fonts' !default;
 $--font-size-base: 14px !default;
 $--font-size-small: 13px !default;
-$--font-size-middle: 16px !default;
-$--font-size-large: 18px !default;
+$--font-size-middle: 15px !default;
+$--font-size-large: 16px !default;
 $--font-color-disabled-base: #bbb !default;
 $--font-weight-primary: 500 !default;
 $--font-line-height-primary: 24px !default;
@@ -137,4 +141,23 @@ $--breakpoints-spec: (
 
 /* Menu
 --------------------------*/
-$--menu-height: 60px;
+$--menu-height: 66px;
+$--menu-offset: $--menu-height + 15px;
+
+/* Asidenav
+--------------------------*/
+$--asidenav-width: 160px;
+
+/* Header
+--------------------------*/
+$--logo-height: 30px;
+$--search-height: 30px;
+
+/* Footer
+--------------------------*/
+$--footer-height: $--menu-height;
+
+/* Tools
+--------------------------*/
+$--tools-height: 44px;
+$--tools-width: 44px;

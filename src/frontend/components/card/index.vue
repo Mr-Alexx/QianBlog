@@ -24,15 +24,18 @@ export default {
 
   // 卡片
   @include b(card) {
-    border: 1px solid $--border-color-lighter;
-    border-radius: $--border-radius-base;
+    // border: 1px solid $--border-color-lighter;
+    border-radius: $--border-radius-small;
     @include utils-prefix(transition, $--all-transition);
     padding: 15px;
+    @include utils-prefix(transition, all .3s linear);
+
     @include m(white) {
       background-color: $--color-white;
     }
     &:hover {
-      @include utils-prefix(box-shadow, $--box-shadow-light);
+      // @include utils-prefix(box-shadow, $--box-shadow-light);
+      background-color: $--color-card-hover;
     }
     @include e(title) {
       font-size: $--font-size-middle;

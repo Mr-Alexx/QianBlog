@@ -37,7 +37,12 @@ const getRes = (code, message, data) => {
   message = (message === undefined || message === '') ?
     status[code].message : message
   data = data || null
-  return Object.assign(status[code], {message, data})
+  // 此处不能使用object.assign来返回对象，会更改status对象的内容存于内存中，是的下一个返回的对象data会是前一个的data
+  return {
+    code,
+    message,
+    data
+  }
 }
 
 module.exports = getRes

@@ -10,6 +10,8 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
+    "start:dev": "npm run dev",
+    "start:server": "supervisor -w ./server,server.js --inspect server.js",
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -35,6 +37,7 @@
     "scriptjs": "^2.5.8",
     "sequelize": "^4.38.0",
     "vue": "^2.5.2",
+    "vue-aplayer": "^1.6.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

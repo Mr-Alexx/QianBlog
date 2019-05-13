@@ -35,6 +35,9 @@ app.use(cors({
 //logger
 app.use(logger())
 
+// music middleware
+// app.use(musicHandler)
+
 // jwt验证 保护下面的中间件
 // 登陆和get请求不需要通过jwt验证
 app.use(koaJwt({secret: config.secret}).unless({

@@ -125,6 +125,19 @@ class ArticleCtrl {
     }
   }
 
+  // 根据标签获取文章
+  async getArticlesByTags (ctx) {
+    try {
+      const res = await articleModel.findAll({
+        where: {
+          
+        }
+      })
+    } catch (err) {
+
+    }
+  }
+
   // 获取归档文章
   async getFile (ctx) {
     try {

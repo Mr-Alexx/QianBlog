@@ -19,18 +19,14 @@ import QianCard from '../card'
 
 export default {
   name: 'QianFeatured',
+  props: {
+    list: {
+      type: Array,
+      default: () => []
+    }
+  },
   components: {
     QianCard
-  },
-  computed: {
-    list () {
-      return this.$store.state.app.featuredList
-    }
-  },
-  mounted () {
-    if (this.list.length <= 0) {
-      this.$store.dispatch('getFeaturedList')
-    }
   }
 }
 </script>

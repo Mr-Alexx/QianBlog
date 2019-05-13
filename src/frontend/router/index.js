@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import loadingBar from '@/components/loading-bar' // 使用loadingbar
 import home from '../views/home'
+import error404 from '@/frontend/views/error-page/404.vue'
 
 Vue.use(Router)
 
@@ -10,18 +11,20 @@ export const router = new Router({
     {
       path: '/',
       name: 'index',
-      component: home
-    },
-    {
-      path: '/article/:id',
-      name: 'article',
-      component: () => import('../views/article'),
-      props: true
-    },
-    {
-      path: '/file',
-      name: 'file',
-      component: () => import('../views/file')
+      component: home,
+      children: [
+        {
+          path: 'article/:id',
+          name: 'article',
+          component: () => import('../views/article'),
+          props: true
+        },
+        {
+          path: '/file',
+          name: 'file',
+          component: () => import('../views/file')
+        }
+      ]
     },
     {
       path: '/tag',
@@ -34,9 +37,9 @@ export const router = new Router({
       component: () => import('../views/music')
     },
     {
-      path: '/life',
-      name: 'life',
-      component: () => import('../views/life')
+      path: '/movie',
+      name: 'movie',
+      component: () => import('../views/movie')
     },
     {
       path: '/effect',
@@ -47,6 +50,10 @@ export const router = new Router({
       path: '/message',
       name: 'message',
       component: () => import('../views/message')
+    },
+    {
+      path: '*',
+      component: error404
     }
   ],
   mode: 'history'

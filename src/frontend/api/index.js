@@ -91,6 +91,6 @@ export function getTimelineList () {
 }
 
 // 获取标签
-export async function getTags () {
+export function getTags () {
   return fetch('tags')
 }
